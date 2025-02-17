@@ -2,11 +2,11 @@
 include "koneksi.php";
 if (isset($_POST['username'])) {
 
-    $email = $_POST['email'];
+
     $username = $_POST['username'];
     $password = md5($_POST['password']);
 
-    $cek = mysqli_query($koneksi, "SELECT*FROM users WHERE email='$email' AND  username='$username' AND password='$password'");
+    $cek = mysqli_query($koneksi, "SELECT*FROM users WHERE   username='$username' AND password='$password'");
 
     if (mysqli_num_rows($cek) > 0) {
         $data = mysqli_fetch_array($cek);
@@ -15,7 +15,7 @@ if (isset($_POST['username'])) {
     } else {
         echo '<script>alert("Username/Password salah!");</script>';
     }
-} 
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -76,9 +76,7 @@ if (isset($_POST['username'])) {
         <h3 class="mb-4 text-primary">Welcome Web To do List</h3>
         <form method="post">
 
-            <div class="mb-3">
-                <input class="form-control" id="inputEmail" type="text" name="email" placeholder="Masukkan Email" />
-            </div>
+
             <div class="mb-3">
                 <input class="form-control" id="inputEmail" type="text" name="username" placeholder="Masukkan Username" />
             </div>
@@ -90,5 +88,6 @@ if (isset($_POST['username'])) {
         <p class="mt-3 mb-0 text-dark">Belum punya Akun? <a href="registrasi.php" class="text-decoration-none">Registrasi</p>
     </div>
 </body>
+
 </html>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
