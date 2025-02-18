@@ -34,27 +34,33 @@
     <h1 class="mt-4">Categories</h1>
 
 
-    <a href="?page=tugas_tambah" class="btn btn-primary">+ Tambah Data</a>
+    <a href="?page=categories_tambah" class="btn btn-primary">+ Tambah Data</a>
     <hr>
     <table class="table table-bordered">
         <tr>
+            <th>No</th>
             <th>Tanggal</th>
+            <th>Task</th>
             <th>Categories</th>
-            <th>Tugas Pekerja</th>
+            <th>Priority</th>
+            <th>Status</th>
             <th>Aksi</th>
         </tr>
 
         <?php
-        $query = mysqli_query($koneksi, "SELECT*FROM pekerja");
+        $query = mysqli_query($koneksi, "SELECT*FROM tasks");
         while ($data = mysqli_fetch_array($query)) {
         ?>
             <tr>
-                <td><?php echo $data['tanggal_tugas']; ?></td>
-                <td><?php echo $data['nama_pekerja']; ?></td>
+                <td><?php echo $data['id']; ?></td>
+                <td><?php echo $data['tanggal_date']; ?></td>
+                <td><?php echo $data['category_id']; ?></td>
                 <td><?php echo $data['task']; ?></td>
+                <td><?php echo $data['user_id']; ?></td>
+                <td><?php echo $data['status']; ?></td>
                 <td>
-                    <a href="?page=tugas_detail&&id=<?php echo $data['id_pekerja']; ?>" class="btn btn-secondary">Detail</a>
-                    <a href="?page=tugas_hapus&&id=<?php echo $data['id_pekerja']; ?>" class="btn btn-danger">Hapus</a>
+                    <a href="?page=categories_detail&&id=<?php echo $data['category_id']; ?>" class="btn btn-secondary">Detail</a>
+                    <a href="?page=categories_hapus&&id=<?php echo $data['category_id']; ?>" class="btn btn-danger">Hapus</a>
                 </td>
             </tr>
         <?php

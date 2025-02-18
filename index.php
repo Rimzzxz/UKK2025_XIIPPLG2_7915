@@ -55,7 +55,7 @@ if (!isset($_SESSION['users'])) {
 
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark ">
-        <a class="navbar-brand ps-3 text-white" href="index.php">To do List</a>
+        <a class="navbar-brand ps-3 text-white" href="index.php">My Task</a>
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
     </nav>
     <div id="layoutSidenav">
@@ -66,11 +66,11 @@ if (!isset($_SESSION['users'])) {
                         <div class="sb-sidenav-menu-heading ">Atribut</div>
                         <a class="nav-link " href="index.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            Dashboard
+                            To do List
                         </a>
-                        <a class="nav-link " href="?page=tugas">
+                        <a class="nav-link " href="?page=categories">
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                            tugas
+                            Task
                         </a>
 
                         <a class="nav-link" href="logout.php">

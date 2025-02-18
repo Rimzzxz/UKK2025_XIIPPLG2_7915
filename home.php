@@ -21,7 +21,7 @@
     }
 
     .sb-sidenav-footer {
-        background: rgb(124, 11, 116) !important;
+        background: rgb(124, 11, 11) !important;
         color: white;
     }
 
@@ -39,10 +39,10 @@
         <div class="col-xl-3 col-md-6">
             <div class="card bg-success text-dark mb-4">
                 <div class="card-body">
-                    <?php echo mysqli_num_rows(mysqli_query($koneksi, "SELECT*FROM peker    ja")) ?> Total tugas
+                    <?php echo mysqli_num_rows(mysqli_query($koneksi, "SELECT*FROM tasks")) ?> Total tugas
                 </div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
-                    <a class="small text-dark stretched-link" href="tugas.php">View Details</a>
+                    <a class="small text-dark stretched-link" href="categories.php">View Details</a>
                     <div class="small text-dark"><i class="fas fa-angle-right"></i></div>
                 </div>
             </div>
