@@ -5,10 +5,10 @@ if (isset($_POST['category_id'])) {
     $category_id = $_POST['category_id'];
     $task = $_POST['task'];
     $priority = $_POST['priority'];
-    $status = $_POST['status'];
+   
 
-    $query = mysqli_query($koneksi, "INSERT INTO tasks (task, category_id, priority, status) 
-    VALUES ('$task', '$category_id', '$priority', '$status')");
+    $query = mysqli_query($koneksi, "INSERT INTO tasks (tanggal_date, task, category_id, priority, status) 
+    VALUES ('$tanggal','$task', '$category_id', '$priority', '$status')");
     if ($query) {
         echo '<script>alert("Tambah data berhasil")</script>';
     } else {
@@ -17,7 +17,7 @@ if (isset($_POST['category_id'])) {
 }
 ?>
 <div class="container-fluid px-4">
-    <h1 class="mt-4">Tugas</h1>
+    <h1 class="mt-4">To do List</h1>
     <ol class="breadcrumb mb-4">
 
     </ol>
@@ -37,20 +37,14 @@ if (isset($_POST['category_id'])) {
             </tr>
             <tr>
                 <td>Priority</td>
-                <td><label class="form-label">:</label></td>
-                <td><input for="priority" class="form-control" list="priorty" name="priority" id="priority">
-                    <datalist id="tidak wajib">
-                </td>
-                <option value="bebas">
-                <option value="kerjakan jika diperlukan">
-                <option value="wajib">
-                    </datalist></textarea>
-                    </td>
-            </tr>
-            <tr>
-                <td>Status</td>
                 <td>:</td>
-                <td><input class="form-control" type="text" name="status"></td>
+                <td>
+                    <select class="form-control" name="priority">
+                        <option value="1">Tidak Perlu</option>
+                        <option value="2">Bebas</option>
+                        <option value="3">Wajib</option>
+                    </select>
+                </td>
             </tr>
             <tr>
                 <td> </td>

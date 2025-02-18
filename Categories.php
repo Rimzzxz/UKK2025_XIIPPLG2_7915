@@ -31,7 +31,7 @@
 </style>
 
 <div class="container-fluid px-4">
-    <h1 class="mt-4">Categories</h1>
+    <h1 class="mt-4">Tugas</h1>
 
 
     <a href="?page=categories_tambah" class="btn btn-primary">+ Tambah Data</a>
@@ -48,18 +48,26 @@
         </tr>
 
         <?php
+        $no = 1;
         $query = mysqli_query($koneksi, "SELECT*FROM tasks");
         while ($data = mysqli_fetch_array($query)) {
         ?>
             <tr>
-                <td><?php echo $data['id']; ?></td>
+                <td><?php echo $no++ ?></td>
                 <td><?php echo $data['tanggal_date']; ?></td>
-                <td><?php echo $data['category_id']; ?></td>
                 <td><?php echo $data['task']; ?></td>
-                <td><?php echo $data['user_id']; ?></td>
+                <td><?php echo $data['category_id']; ?></td>
+                <td><?php echo $data['priority']; ?></td>
                 <td><?php echo $data['status']; ?></td>
+
                 <td>
-                    <a href="?page=categories_detail&&id=<?php echo $data['category_id']; ?>" class="btn btn-secondary">Detail</a>
+
+                    <a href="?page=categories&&id=<?php if ($row['status'] == 0) {
+                        echo "Belum Selesai";
+                    } else {
+                         echo "Selesai";
+                        }
+                        ?>" class="btn btn-success">Selesai</a>
                     <a href="?page=categories_hapus&&id=<?php echo $data['category_id']; ?>" class="btn btn-danger">Hapus</a>
                 </td>
             </tr>
