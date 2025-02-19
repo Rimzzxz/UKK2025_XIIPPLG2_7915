@@ -7,10 +7,12 @@ if (isset($_POST['category_id'])) {
     $priority = $_POST['priority'];
    
 
-    $query = mysqli_query($koneksi, "INSERT INTO tasks (tanggal_date, task, category_id, priority, status) 
-    VALUES ('$tanggal','$task', '$category_id', '$priority', '$status')");
+    $query = mysqli_query($koneksi, "INSERT INTO tasks (tanggal_date, task, category_id, priority) 
+    VALUES ('$tanggal','$task', '$category_id', '$priority')");
     if ($query) {
-        echo '<script>alert("Tambah data berhasil")</script>';
+        echo '<script>alert("Tambah data berhasil")
+        location.href="?page=categories"
+        </script>';
     } else {
         echo '<script>alert("Tambah data Gagal!")</script>';
     }

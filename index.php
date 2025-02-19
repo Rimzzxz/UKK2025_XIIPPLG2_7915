@@ -66,7 +66,11 @@ if (!isset($_SESSION['users'])) {
                         <div class="sb-sidenav-menu-heading ">Atribut</div>
                         <a class="nav-link " href="index.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            To do List
+                            Home
+                        </a>
+                        <a class="nav-link " href="?page=kategori">
+                            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                            Categories
                         </a>
                         <a class="nav-link " href="?page=categories">
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
@@ -86,7 +90,7 @@ if (!isset($_SESSION['users'])) {
             </nav>
         </div>
         <div id="layoutSidenav_content">
-        <main>
+            <main>
                 <?php
                 $page = isset($_GET['page']) ? $_GET['page'] : 'home';
                 include $page . '.php';

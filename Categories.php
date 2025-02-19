@@ -33,42 +33,46 @@
 <div class="container-fluid px-4">
     <h1 class="mt-4">Tugas</h1>
 
-
-    <a href="?page=categories_tambah" class="btn btn-primary">+ Tambah Data</a>
+    <a href="?page=categories_tambah" class="btn btn-primary">+ Tambah Tugas</a>
     <hr>
     <table class="table table-bordered">
         <tr>
             <th>No</th>
             <th>Tanggal</th>
-            <th>Task</th>
-            <th>Categories</th>
-            <th>Priority</th>
+            <th>Tugas</th>
+            <th>Kategori</th>
+            <th>Prioritas</th>
             <th>Status</th>
             <th>Aksi</th>
         </tr>
 
         <?php
         $no = 1;
-        $query = mysqli_query($koneksi, "SELECT*FROM tasks");
+        $query = mysqli_query($koneksi, "SELECT * FROM tasks");
         while ($data = mysqli_fetch_array($query)) {
         ?>
             <tr>
-                <td><?php echo $no++ ?></td>
+                <td><?php echo $no++; ?></td>
                 <td><?php echo $data['tanggal_date']; ?></td>
                 <td><?php echo $data['task']; ?></td>
                 <td><?php echo $data['category_id']; ?></td>
                 <td><?php echo $data['priority']; ?></td>
-                <td><?php echo $data['status']; ?></td>
+                <td>
+                    <?php
+                    if ($data['status'] ==  "1") {
+                        echo '<span class="badge bg-success">Selesai</span>';
+                    } else {
+                        echo '<span class="badge bg-danger">Belum Selesai</span>';
+                    } 
+                    ?>
+                </td>
 
                 <td>
+                    <?php if ($data['status'] == 0) { ?>
+                        <a href="?page=categories_selesai&id=<?php echo $data['id_task']; ?>" class="btn btn-success">Selesai</a>
+                    <?php } ?>
 
-                    <a href="?page=categories&&id=<?php if ($row['status'] == 0) {
-                        echo "Belum Selesai";
-                    } else {
-                         echo "Selesai";
-                        }
-                        ?>" class="btn btn-success">Selesai</a>
-                    <a href="?page=categories_hapus&&id=<?php echo $data['category_id']; ?>" class="btn btn-danger">Hapus</a>
+                    <a href="?page=categories_hapus&id=<?php echo $data['id_task']; ?>" class="btn btn-danger">Hapus</a>
                 </td>
             </tr>
         <?php
