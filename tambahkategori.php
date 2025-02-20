@@ -1,15 +1,14 @@
-
 <?php
-if (isset($_POST['id_category'])) {
+if (isset($_POST['category_id'])) {
 
-    $idcategory = $_POST['id_category'];
+    $idcategory = $_POST['category_id'];
     $tanggal = date('Y/m/d');
     $category = $_POST['category'];
     $userid = $_SESSION['user_id'];
 
 
-    $query = mysqli_query($koneksi, "INSERT INTO categories (id_category, tanggal_tambah, category, user_id) 
-    VALUES ('$tanggal','$category,'$userid')");
+    $query = mysqli_query($koneksi, "INSERT INTO categories (category_id, category, user_id) 
+    VALUES ('$tanggal','$idcategory,'$category,'$userid')");
     if ($query) {
         echo '<script>alert("Tambah Kategori berhasil")
         location.href="?page=kategori"
@@ -19,6 +18,7 @@ if (isset($_POST['id_category'])) {
     }
 }
 ?>
+
 <div class="container-fluid px-4">
     <h1 class="mt-4">Kategori</h1>
     <ol class="breadcrumb mb-4">

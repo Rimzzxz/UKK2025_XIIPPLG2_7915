@@ -63,16 +63,16 @@
                         echo '<span class="badge bg-success">Selesai</span>';
                     } else {
                         echo '<span class="badge bg-danger">Belum Selesai</span>';
-                    } 
+                    }
                     ?>
                 </td>
 
                 <td>
                     <?php if ($data['status'] == 0) { ?>
-                        <a href="?page=categories_selesai&id=<?php echo $data['id_task']; ?>" class="btn btn-success">Selesai</a>
+                        <a href="?page=categories_selesai&id=<?php echo $data['category_id']; ?>" class="btn btn-success">Selesai</a>
                     <?php } ?>
 
-                    <a href="?page=categories_hapus&id=<?php echo $data['id_task']; ?>" class="btn btn-danger">Hapus</a>
+                    <a href="?page=categories_hapus&id=<?php echo $data['category_id']; ?>" class="btn btn-danger">Hapus</a>
                 </td>
             </tr>
         <?php

@@ -53,7 +53,7 @@
                 <td><?php echo $data['tanggal_tambah']; ?></td>
                 <td><?php echo $data['category']; ?></td>
                 <td>
-                    <a href="?page=hapuskategori&id=<?php echo $data['id_category']; ?>" class="btn btn-danger">Hapus</a>
+                    <a href="?page=hapuskategori&id=<?php echo $data['category_id']; ?>" class="btn btn-danger">Hapus</a>
                 </td>
             </tr>
         <?php
