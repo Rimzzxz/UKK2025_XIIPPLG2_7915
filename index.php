@@ -57,6 +57,11 @@ if (!isset($_SESSION['users'])) {
     <nav class="sb-topnav navbar navbar-expand navbar-dark ">
         <a class="navbar-brand ps-3 text-white" href="index.php">My Task</a>
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                </div>
     </nav>
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
@@ -65,20 +70,25 @@ if (!isset($_SESSION['users'])) {
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading ">Atribut</div>
                         <a class="nav-link " href="index.php">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-house"></i></div>
                             Home
                         </a>
                         <a class="nav-link " href="?page=kategori">
-                            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-layer-group"></i></div>
                             Categories
                         </a>
                         <a class="nav-link " href="?page=categories">
-                            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-list-check"></i></div>
                             Task
                         </a>
-
+                        <a class="nav-link" href="profile.php">
+                            <div class="sb-nav-link-icon">
+                                <i class="fa-solid fa-user"></i>
+                            </div>
+                            Profile
+                        </a>
                         <a class="nav-link" href="logout.php">
-                            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-right-from-bracket"></i></div>
                             Logout
                         </a>
                     </div>

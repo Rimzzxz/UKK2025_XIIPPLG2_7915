@@ -5,7 +5,7 @@ if (isset($_POST['category_id'])) {
     $category_id = $_POST['category_id'];
     $task = $_POST['task'];
     $priority = $_POST['priority'];
-
+   
 
     $query = mysqli_query($koneksi, "INSERT INTO tasks (tanggal_date, task, category_id, priority) 
     VALUES ('$tanggal','$task', '$category_id', '$priority')");
@@ -16,13 +16,6 @@ if (isset($_POST['category_id'])) {
     } else {
         echo '<script>alert("Tambah data Gagal!")</script>';
     }
-}
-?>
-<?php
-$query_category = mysqli_query($koneksi, "SELECT * FROM categories");
-$categories = [];   
-while ($row = mysqli_fetch_assoc($query_category)) {
-    $categories[] = $row;
 }
 ?>
 <div class="container-fluid px-4">
@@ -40,17 +33,9 @@ while ($row = mysqli_fetch_assoc($query_category)) {
                 <td><input class="form-control" type="text" name="task"></td>
             </tr>
             <tr>
-                <td>Category</td>
-                <td>:</td>
-                <td>
-                    <select class="form-control" name="category_id">
-                        <?php foreach ($categories as $pel) { ?>
-                            <option value="<?php echo $pel['category_id']; ?>">
-                                <?php echo $pel['category']; ?>
-                            </option>
-                        <?php } ?>
-                    </select>
-                </td>
+                <td width="200">Category</td>
+                <td width="1">:</td>
+                <td><input class="form-control" type="text" name="category_id"></td>
             </tr>
             <tr>
                 <td>Priority</td>
