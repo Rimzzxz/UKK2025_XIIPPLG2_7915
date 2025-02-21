@@ -1,50 +1,38 @@
 <?php
- 
-include 'koneksi.php';  
-$id = isset($_GET['id']) ? $_GET['id'] : null;
-if ($id) {
- 
-    $query = mysqli_query($koneksi, "SELECT * FROM users WHERE id = '$id'");
-
-   
-    if ($query && mysqli_num_rows($query) > 0) {
-        $data = mysqli_fetch_assoc($query);
-    } else {
-        echo "Data tidak ditemukan!";
-        exit;
-    }
-} else {
-    echo "ID tidak tersedia!";
-    exit;
-}
+$user = [
+    'name' => 'rimo',
+    'email' => 'rimomaisal@gmail.com',
+    'photo' => 'profile.jpeg',
+];
 ?>
 
-<div class="container-fluid px-4">
-    <h1 class="mt-4">Profile</h1>
-    <hr>
-    <form method="post">
-        <table class="table table-bordered">
-            <tr>
-                <td width="200">Nama</td>
-                <td width="1">:</td>
-                <td>
-                    <?= htmlspecialchars($data['nama_pelanggan']) ?>
-                </td>
-            </tr>
-            <tr>
-                <td width="200">Username</td>
-                <td width="1">:</td>
-                <td>
-                    <?= htmlspecialchars($data['username']) ?>
-                </td>
-            </tr>
-            <tr>
-                <td width="200">Email</td>
-                <td width="1">:</td>
-                <td>
-                    <?= htmlspecialchars($data['email']) ?>
-                </td>
-            </tr>
-        </table>
-    </form>
-</div>
+<!DOCTYPE html>`
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Pengguna</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="card mx-auto" style="max-width: 400px;">
+            <div class="card-body text-center">
+                <h3>Profil Pengguna</h3>
+                <img src="<?= $user['photo']; ?>" alt="Foto Profil" class="rounded-corners mb-3" width="60%">
+                <h4 class="card-title"> <?= $user['name']; ?> </h4>
+                <p class="text-muted"> <?= $user['email']; ?> </p>
+                <a class="nav-link" href="logout.php">
+                    <div class="sb-nav-link-icon"><i class="fa-solid fa-right-from-bracket"></i></div>
+                    Logout
+                </a>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
